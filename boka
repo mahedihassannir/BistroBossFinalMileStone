@@ -1,0 +1,101 @@
+
+    // gere is teh users registration infos cursor 
+
+    app.get("/users", async (req, res) => {
+      const filter = userSDb.find()
+
+      const result = await filter.toArray()
+      res.send(result)
+    })
+
+
+    // here is the user register infos
+
+    app.post("/users", async (req, res) => {
+      const user = req.body
+
+      console.log(user);
+
+      const query = { email: user.email }
+
+
+
+      const existingUser = await userSDb.findOne(query);
+
+      if (existingUser) {
+        return res.send({ massage: "user already exist" })
+      }
+
+
+      const result = await userSDb.insertOne(user)
+      console.log(result);
+      res.send(result)
+    })
+
+
+
+
+
+    // here is the cursor of the cart collection
+
+    app.get("/cart", async (req, res) => {
+
+
+      const email = req.query.email
+
+      console.log(email);
+
+
+
+      if (!email) {
+
+        res.send([]);
+      }
+
+      const query = { UserEmail: email };
+
+      const result = await cartDb.find(query).toArray()
+
+      res.send(result)
+
+
+    })
+
+    // here is the cursor of the cart collection
+
+
+    // here is the cart collection
+
+    app.post("/Cart", async (req, res) => {
+      const cart = req.body
+
+      console.log(cart);
+
+      const result = await cartDb.insertOne(cart)
+      res.send(result)
+    })
+
+
+    // here is the cart collection
+
+
+
+
+
+    app.get('/menu', async (req, res) => {
+      const result = await menuCollection.find().toArray();
+      res.send(result);
+    })
+
+    app.post("/menu", async (req, res) => {
+      const user = req.body
+      console.log(user);
+
+    })
+
+    app.get('/reviews', async (req, res) => {
+      const result = await reviewCollection.find().toArray();
+      res.send(result);
+    })
+
+

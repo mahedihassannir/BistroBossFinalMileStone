@@ -1,7 +1,6 @@
 {
   "name": "bistro-boss-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,5 +13,15 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongodb": "^5.5.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProgrammingHero1/bistro-boss-server-with-menu-and-order.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ProgrammingHero1/bistro-boss-server-with-menu-and-order/issues"
+  },
+  "homepage": "https://github.com/ProgrammingHero1/bistro-boss-server-with-menu-and-order#readme",
+  "description": ""
 }
